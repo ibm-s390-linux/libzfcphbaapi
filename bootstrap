@@ -1,0 +1,26 @@
+#! /bin/sh
+
+# SPDX-License-Identifier: EPL-1.0
+# Copyright IBM Corp. 2008, 2013
+#
+# Authors:		Andreas Herrmann
+#			Sven Schuetz <sven@de.ibm.com>
+#
+# File:			bootstrap
+#
+# Description:
+# Setup of the autotools
+#
+#
+
+echo "NOTE: Recent autoconf provides 'autoreconf' to update generated config files"
+echo "      as alternative to bootstrap or autogen."
+echo bootstrapping $d...
+
+aclocal
+autoheader
+autoconf
+libtoolize --automake
+automake --add-missing
+
+echo You can now run ./configure
