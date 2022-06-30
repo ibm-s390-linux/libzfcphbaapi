@@ -1,3 +1,15 @@
+2022-06-30  Fedor Loshakov <loshakov@linux.ibm.com>
+
+	* Makefile.am: use libzfcphbaapi.la for linking, so that
+	automake creates explicit dependency on libzfcphbaapi.la for
+	zfcp_ping/zfcp_show in resulting Makefile.
+
+	* Makefile.am: add subdir-objects to automake options, so that
+	automake can find files in subdirectories, like fc_tools.
+
+	* configure.in: remove obsolete macro `AC_HEADER_STDC' and
+	replace obsolete macro `AC_LANG_C' with `AC_LANG([C])'.
+
 2021-03-29  Karsten Graul <kgraul@linux.ibm.com>
 
 	* Version 3.0.0 re-licenses lib-zfcp-hbaapi to EPL-1.0
