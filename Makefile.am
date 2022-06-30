@@ -18,6 +18,8 @@ LIB_CURRENT	= 1
 LIB_REVISION	= 0
 LIB_AGE		= 1
 
+AUTOMAKE_OPTIONS = subdir-objects
+
 if BACKTRACE
 BT_CFLAGS = -rdynamic
 endif
