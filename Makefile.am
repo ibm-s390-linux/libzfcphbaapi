@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: EPL-1.0
-# Copyright IBM Corp. 2008, 2018
+# Copyright IBM Corp. 2008, 2022
 #
 # Authors:		Andreas Herrmann
 #			Sven Schuetz <sven@de.ibm.com>
@@ -74,8 +74,8 @@ if VENDORLIB
 zfcp_ping_LDADD = -lHBAAPI
 zfcp_show_LDADD = -lHBAAPI
 else
-zfcp_ping_LDADD = -lzfcphbaapi
-zfcp_show_LDADD = -lzfcphbaapi
+zfcp_ping_LDADD = libzfcphbaapi.la
+zfcp_show_LDADD = libzfcphbaapi.la
 endif
 
 
