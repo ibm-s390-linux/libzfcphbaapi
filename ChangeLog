@@ -1,3 +1,8 @@
+2023-05-11  Fedor Loshakov <loshakov@linux.ibm.com>
+
+	* README: reflect that the code default is "no" for vendorlib
+	build.
+
 2022-06-30  Fedor Loshakov <loshakov@linux.ibm.com>
 
 	* Makefile.am: use libzfcphbaapi.la for linking, so that

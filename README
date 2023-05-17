@@ -62,7 +62,7 @@ Configuration options:
     --enable-backtrace=yes|no    default: no
         Enable backtrace printing on mutex errors.
 
-    --enable-vendor-lib=yes|no    default: yes
+    --enable-vendor-lib=yes|no    default: no
         Builds the library as a vendor specific library to be used with the
         common SNIA library (see http://hbaapi.sourceforge.net). All entry
         points will be in the common library (libHBAAPI.so) and the
