@@ -1,5 +1,5 @@
 # SPDX-License-Identifier: EPL-1.0
-# Copyright IBM Corp. 2008, 2022
+# Copyright IBM Corp. 2008, 2024
 #
 # Authors:		Andreas Herrmann
 #			Sven Schuetz <sven@de.ibm.com>
@@ -15,7 +15,7 @@ docdir	= $(datadir)/zfcp-hbaapi-$(VERSION)
 
 # libtool versioning
 LIB_CURRENT	= 1
-LIB_REVISION	= 0
+LIB_REVISION	= 1
 LIB_AGE		= 1
 
 AUTOMAKE_OPTIONS = subdir-objects
