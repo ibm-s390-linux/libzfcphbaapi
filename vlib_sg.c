@@ -1,6 +1,6 @@
 // SPDX-License-Identifier: EPL-1.0
 /*
- * Copyright IBM Corp. 2010
+ * Copyright IBM Corp. 2010, 2024.
  *
  * Authors:		Sven Schuetz <sven@de.ibm.com>
  *
@@ -15,6 +15,8 @@
  * @file vlib_sg.c
  * @brief All calls that use sg_utils library.
  */
+
+#include <scsi/sg_cmds_basic.h>
 
 #include "vlib.h"
 

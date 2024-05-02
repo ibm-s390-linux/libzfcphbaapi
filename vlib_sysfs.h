@@ -1,6 +1,6 @@
 /* SPDX-License-Identifier: EPL-1.0 */
 /*
- * Copyright IBM Corp. 2010
+ * Copyright IBM Corp. 2010, 2024.
  *
  * Authors:		Sven Schuetz <sven@de.ibm.com>
  * 			contains code from vlib_aux.h
@@ -33,6 +33,8 @@ HBA_STATUS sysfs_createAndReadConfigAdapter();
 HBA_STATUS sysfs_getDiscoveredPortAttributes(HBA_PORTATTRIBUTES **,
 						struct vlib_port *);
 HBA_STATUS sysfs_getAdapterPortAttributes(HBA_PORTATTRIBUTES **,
+						struct vlib_adapter *);
+HBA_STATUS sysfs_getAdapterAttributes(HBA_ADAPTERATTRIBUTES **,
 						struct vlib_adapter *);
 HBA_STATUS sysfs_getPortStatistics(HBA_PORTSTATISTICS **,
 						struct vlib_adapter *);

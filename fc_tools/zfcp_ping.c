@@ -4,7 +4,7 @@
  *
  * Fibre Channel ping.
  *
- * Copyright IBM Corp. 2009, 2010.
+ * Copyright IBM Corp. 2009, 2024.
  *
  * Author(s): Swen Schillig <swen@vnet.ibm.com>
  */
@@ -14,6 +14,8 @@
 #include <signal.h>
 #include <hbaapi.h>
 #include <errno.h>
+#include <sys/time.h>
+
 #include "include/zfcp_util.h"
 
 #define FC_PNG_REV              0x00000001
