@@ -44,8 +44,10 @@ int sfhelper_getProperty(char *dir, char *name, char *result)
 	fd = fopen(path, "r");
 	if (!fd)
 		return 0;
-	if (fgets(result, ATTR_MAX, fd) == NULL)
+	if (fgets(result, ATTR_MAX, fd) == NULL) {
+		fclose(fd);
 		return -1;
+	}
 	fclose(fd);
 	if (result[strlen(result) - 1] == '\n')
 		result[strlen(result) - 1] = '\0';
