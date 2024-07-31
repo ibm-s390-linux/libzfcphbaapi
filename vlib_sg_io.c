@@ -52,8 +52,10 @@ static int sg_io_performSGIO(char *devName, struct sg_io_v4 *sg_io)
 
 	status = ioctl(fd, SG_IO, sg_io);
 
-	if (status < 0)
+	if (status < 0) {
+		close(fd);
 		return status;
+	}
 
 	status = close(fd);
 
