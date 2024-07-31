@@ -447,6 +447,7 @@ out:
 	aa->d_id = port_attr.PortFcId;
 	aa->speed = port_attr.PortSpeed;
 	strncpy(aa->dev_name, port_attr.OSDeviceName, sizeof(aa->dev_name));
+	(aa->dev_name)[sizeof(aa->dev_name) - 1] = '\0';
 
 	return aa;
 }
