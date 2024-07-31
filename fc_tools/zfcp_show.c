@@ -89,11 +89,15 @@ void show_ns_info(HBA_HANDLE handle, uint64_t value)
 		port_name = (*(uint64_t *) (payload + 4));
 		proto = (*(uint32_t *) (payload + 560));
 
-		if (tmp == port_id)
+		if (tmp == port_id) {
+			free(resp);
 			break;
+		}
 		if ((display_detail & ATTACHMENT) &&
-		    !(value == port_id || value == port_name))
+		    !(value == port_id || value == port_name)) {
+			free(resp);
 			continue;
+		}
 
 		printf("\t 0x%016lx / 0x%x [%s] ", port_name, port_id, 
 			pt[*payload]);
