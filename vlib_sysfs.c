@@ -339,9 +339,11 @@ int sysfs_getUnitsFromPort(struct vlib_port *port)
 		if (strncmp(dirent, "target", 6) == 0)
 			break;
 	}
-	if (dirent == NULL)
+	if (dirent == NULL) {
+		sfhelper_closedir(dir);
 		/* no units, no error*/
 		return 0;
+	}
 
 	sfhelper_closedir(dir);
 
