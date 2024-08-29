@@ -173,7 +173,7 @@ static HBA_STATUS getPortAttributes(HBA_PORTATTRIBUTES **pPortattributes,
 
 	/* Port State */
 	ret = sfhelper_getProperty(classpath, "port_state", attr);
-	if (attr)
+	if (!ret)
 		(*pPortattributes)->PortState =  vlibCharToIntPortState(attr);
 
 	/* Supported Classes */
