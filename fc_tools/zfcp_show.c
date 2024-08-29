@@ -521,6 +521,7 @@ HBA_STATUS do_something(struct adapter_attr *aa, uint64_t value)
 	ice_no = get_ice_list(aa->handle, &ice);
 	if (!ice_no) {
 		printf("ERROR: no interconnect elements found.\n");
+		free(ice);
 		return 1;
 	}
 
