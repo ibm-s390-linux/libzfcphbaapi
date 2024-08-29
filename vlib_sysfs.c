@@ -35,7 +35,7 @@ static HBA_STATUS addPortByName(struct vlib_adapter *adapter, char *name)
 	char path[PATH_MAX];
 	char attr[ATTR_MAX];
 	int ret;
-	struct vlib_port port;
+	struct vlib_port port = { .did = 0 };
 
 	snprintf(path, PATH_MAX, "/sys/class/fc_remote_ports/%s", name);
 
