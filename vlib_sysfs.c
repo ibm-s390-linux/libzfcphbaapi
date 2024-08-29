@@ -69,7 +69,14 @@ static HBA_STATUS addPortByName(struct vlib_adapter *adapter, char *name)
 static HBA_STATUS addAdapterByDevPath(char *dev_path)
 {
 	char *fc_host_name;
-	struct vlib_adapter a;
+	struct vlib_adapter a = {
+		.ident = {
+			.devid = 0,
+			.wwpn = 0,
+			.wwnn = 0,
+			.did = 0,
+		}
+	};
 	char attr[ATTR_MAX];
 	char classpath[PATH_MAX];
 	int ret;
