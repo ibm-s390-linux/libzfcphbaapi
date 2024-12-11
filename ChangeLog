@@ -1,3 +1,7 @@
+2024-12-11  Nihar Panda <niharp@linux.ibm.com>
+
+	* Version 3.0.2 contains small updates for building:
+
 2024-05-02  Fedor Loshakov <loshakov@linux.ibm.com>
 
 	* vlib.c, vlib_sg.c, fc_tools/zfcp_ping.c:

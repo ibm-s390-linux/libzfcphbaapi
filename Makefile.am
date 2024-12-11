@@ -15,7 +15,7 @@ docdir	= $(datadir)/zfcp-hbaapi-$(VERSION)
 
 # libtool versioning
 LIB_CURRENT	= 1
-LIB_REVISION	= 1
+LIB_REVISION	= 2
 LIB_AGE		= 1
 
 AUTOMAKE_OPTIONS = subdir-objects

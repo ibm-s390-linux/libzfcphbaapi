@@ -4,13 +4,14 @@ lib-zfcp-hbaapi
 DESCRIPTION
 -----------
 
-This is lib-zfcp-hbaapi (zfcp HBA API library) Version 3.0.1. It is part of an
+This is lib-zfcp-hbaapi (zfcp HBA API library) Version 3.0.2. It is part of an
 implementation of FC-HBA for the ZFCP device driver.
 
 The zfcp device driver is a FCP device driver for Linux on System z.
 The whole implementation of FC-HBA for the zfcp device driver is called zfcp
 HBA API. It is a shared library which provides the API defined in FC-HBA.
 
+- Version 3.0.2 contains small updates for building.
 - Version 3.0.1 contains small updates for building.
 - Version 3.0.0 re-licenses lib-zfcp-hbaapi to EPL-1.0.
 - Version 2.2.0 contains additional port speed capabilities.
