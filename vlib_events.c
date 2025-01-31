@@ -197,7 +197,7 @@ static void dispatch_event(struct nlmsghdr *nlh)
 	process_event(fc_nle);
 }
 
-static void *establish_listener()
+static void *establish_listener(void *unused)
 {
 	struct msghdr msg;
 	struct sockaddr_nl src_addr, dest_addr;
