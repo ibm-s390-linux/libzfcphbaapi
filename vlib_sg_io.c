@@ -144,7 +144,7 @@ static HBA_STATUS sg_io_performGIDPN(struct vlib_adapter *adapter,
 static fc_id_t getDidFromWWN(struct vlib_adapter *adapter, wwn_t portwwn)
 {
 	struct gid_pn_rsp_frame rsp;
-	fc_id_t d_id;
+	fc_id_t d_id = 0;
 
 	if (sg_io_performGIDPN(adapter, portwwn, &rsp))
 		;
@@ -152,11 +152,13 @@ static fc_id_t getDidFromWWN(struct vlib_adapter *adapter, wwn_t portwwn)
 	if (rsp.hdr.ct_cmd == 0x8002) {
 		/* accept CT */
 		/* convert from u8[3] to 32bit number*/
-		return *((fc_id_t*)&rsp.gid_pn_rsp.fp_fid);
+		d_id = (rsp.gid_pn_rsp.fp_fid[0] << 16) |
+		       (rsp.gid_pn_rsp.fp_fid[1] << 8)  |
+		       rsp.gid_pn_rsp.fp_fid[2];
 	}
 
 	/* all other cases including reject ct */
-	return 0;
+	return d_id;
 }
 
 HBA_STATUS sg_io_sendRNID(struct vlib_adapter *adapter, wwn_t portwwn,
@@ -179,7 +181,13 @@ HBA_STATUS sg_io_sendRNID(struct vlib_adapter *adapter, wwn_t portwwn,
 	rnid.rnid_fmt = ELS_RNIDF_GEN;
 	cdb.msgcode = FC_BSG_HST_ELS_NOLOGIN;
 	cdb.rqst_data.h_els.command_code = 0x78;
-	memcpy(cdb.rqst_data.h_els.port_id, (char *)&d_id,
+	/*
+	 * d_id is a uint32_t type and port_id inside cdb is __u8[3].
+	 * So left shift by 8 bits to get rid of the extra byte with '0'
+	 * that appear in the start before copying to the port_id.
+	 */
+	d_id = (d_id << 8);
+	memcpy(cdb.rqst_data.h_els.port_id, &d_id,
 					sizeof(cdb.rqst_data.h_els.port_id));
 
 	sg_io.guard = 'Q';
