@@ -493,7 +493,7 @@ HBA_STATUS sysfs_getAdapterAttributes(HBA_ADAPTERATTRIBUTES **pAttrs,
 						struct vlib_adapter *adapter)
 {
 	char classpath[PATH_MAX], attr[ATTR_MAX];
-	int ret, a;
+	int ret, a, str_size = 0;
 
 	memset(*pAttrs, 0, sizeof(HBA_ADAPTERATTRIBUTES));
 
@@ -505,7 +505,11 @@ HBA_STATUS sysfs_getAdapterAttributes(HBA_ADAPTERATTRIBUTES **pAttrs,
 	/* Serial Number */
 	ret = sfhelper_getProperty(classpath, "serial_number", attr);
 	if (!ret)
-		strcpy((*pAttrs)->SerialNumber, attr);
+	{
+		str_size = min(sizeof((*pAttrs)->SerialNumber), strlen(attr));
+		strncpy((*pAttrs)->SerialNumber, attr, str_size);
+		(*pAttrs)->SerialNumber[str_size] = '\0';
+	}
 
 	/* Model */
 	ret = sfhelper_getProperty(adapter->ident.sysfsPath, "card_version",
