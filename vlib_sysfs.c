@@ -81,7 +81,10 @@ static HBA_STATUS addAdapterByDevPath(char *dev_path)
 
 	ret = sfhelper_getProperty(dev_path, "online", attr);
 	if (!ret && strncmp(attr, "0", 1) == 0)
+	{
+		sfhelper_closedir(dir);
 		return HBA_STATUS_ERROR_INVALID_HANDLE;
+	}
 
 	while (fc_host_name = sfhelper_getNextDirEnt(dir)) {
 		if (strncmp(fc_host_name, "host", 4) == 0)
@@ -89,8 +92,11 @@ static HBA_STATUS addAdapterByDevPath(char *dev_path)
 	}
 
 	if (fc_host_name == NULL)
+	{
+		sfhelper_closedir(dir);
 		/* adapter is offline, no fc_host entry */
 		return HBA_STATUS_ERROR_UNAVAILABLE;
+	}
 
 	a.ident.host = strtoul(fc_host_name + 4, NULL, 0);
 	sfhelper_closedir(dir);
