@@ -197,7 +197,7 @@ static void dispatch_event(struct nlmsghdr *nlh)
 	process_event(fc_nle);
 }
 
-static void *establish_listener(void *unused)
+static void establish_listener(void *unused)
 {
 	struct msghdr msg;
 	struct sockaddr_nl src_addr, dest_addr;
@@ -238,5 +238,5 @@ void cleanup_event_thread()
 
 void start_event_thread()
 {
-	pthread_create(&vlib_data.id, NULL, &establish_listener, NULL);
+	pthread_create(&vlib_data.id, NULL, (void *) &establish_listener, NULL);
 }
