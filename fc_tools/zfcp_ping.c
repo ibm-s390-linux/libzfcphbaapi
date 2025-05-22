@@ -133,7 +133,7 @@ HBA_STATUS send_fc_ping(struct adapter_attr *aa, char *dest, unsigned int token,
         }
 
 	if (display_detail & VERBOSE)
-		printf("Sending PNG from BUS_ID=0.0.%x WWPN=0x%016llx "
+		printf("Sending PNG from BUS_ID=0.0.%x WWPN=0x%016lx "
 		       "ID=0x%x dev=%s speed=%s\n", aa->bus_id, aa->wwpn, 
 		       aa->d_id, aa->dev_name, speed[aa->speed]);
 	else
