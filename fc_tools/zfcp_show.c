@@ -736,7 +736,7 @@ int main(int argc, char *argv[]) {
         if (aa) {
 		if (display_detail & VERBOSE)
 			printf("Using adapter BUS_ID    0.0.%x\n"
-			       "              Name      0x%016llx\n" 
+			       "              Name      0x%016lx\n"
 			       "              N_Port_ID 0x%x\n" 
 			       "              OS-Device %s\n"
 			       "              Speed     %s\n",
