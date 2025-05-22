@@ -180,7 +180,8 @@ HBA_STATUS send_fc_ping(struct adapter_attr *aa, char *dest, unsigned int token,
 				       (*tp)++, update_ts(&start, &end));
 			else
 				printf("\techo received from D_ID (0x%x) "
-				       "tok=%d time=%0.03f ms\n", dest_val,
+				       "tok=%d time=%0.03f ms\n",
+				       (uint32_t)dest_val,
 				       (*tp)++, update_ts(&start, &end));
 			sleep(1);
 			count--;
